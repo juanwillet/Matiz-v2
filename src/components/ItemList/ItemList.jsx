@@ -7,7 +7,7 @@ function Itemlist ({productos}){
 <Item prod={prod} key={prod.id}/>
 ))
 }
-        </div>
+</div>
     )
 }
 

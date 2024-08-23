@@ -1,7 +1,10 @@
-function Button ({color, label, secondColor}) {
+import { Children } from "react"
+
+function Button ({color, label, secondColor, callback}) {
     return(
 <button
 style={{backgroundColor: color, color: secondColor}}
+onClick={callback}
 >
 {label}
 </button>
