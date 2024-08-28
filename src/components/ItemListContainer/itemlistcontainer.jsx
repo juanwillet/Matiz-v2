@@ -5,13 +5,13 @@ function ItemListContainer ({greeting}) {
     const [productos, setProductos]= useState([])
 
     useEffect ( ()=>{
-       fetch ('https://api.escuelajs.co/api/v1/products')
+       fetch ('https://fakestoreapi.com/products')
         .then (resp=> resp.json())
         .then (resp=> setProductos(resp))
         }, [])
     
-    productos.splice(0, 4)
-    
+    //productos.splice(0, 4)
+console.log(productos)
     return(
         
         <>
