@@ -1,16 +1,13 @@
-import ItemCount from "../ItemCount/ItemCount"
+import { Link } from "react-router-dom"
+
 function Item ({prod}) {
     return(
- <div style={{backgroundColor: "blue"}}>
+ <div style={{backgroundColor: "white"}}>
   <p>{prod.title}</p>
+  <p>{prod.category}</p>
   <img src={prod.image} alt="" />
-  <p>{prod.price}</p>
-  <p>{prod.description}</p>
-  <ItemCount
-inicial= {1}
-stock= {20}
-background= {'#7295cc'}
-/>
+  <p>{prod.price} $</p>
+  <Link to={`/detalle/${prod.id}`}> DETALLE </Link>
  </div>
     )
 }

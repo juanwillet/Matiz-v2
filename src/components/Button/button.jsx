@@ -1,5 +1,3 @@
-import { Children } from "react"
-
 function Button ({color, label, secondColor, callback}) {
     return(
 <button
