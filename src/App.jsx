@@ -1,4 +1,3 @@
-
 import './App.css'
 import ItemListContainer from './components/ItemListContainer/itemlistcontainer.jsx'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx'
@@ -10,9 +9,7 @@ function App() {
   return (
     <> 
  <BrowserRouter>
- <NavBar
-color='blue'
-/>
+ <NavBar/>
 <Routes>
   <Route path='/' element={<ItemListContainer/>}/>
   <Route path='/category/:categoryId' element={<ItemListContainer/>}/>

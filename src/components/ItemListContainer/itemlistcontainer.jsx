@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 import Itemlist from "../ItemList/ItemList.JSX"
 import { useParams } from "react-router-dom"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function ItemListContainer ({greeting}) {
-   
+
     const [productos, setProductos]= useState([])
     const {categoryId} = useParams()
 
@@ -22,15 +25,21 @@ function ItemListContainer ({greeting}) {
             filtro(resp)
         }})
         }, [categoryId])
-
-    return(
-        
-        <>
-        <h2>
-            {greeting}
-        </h2><Itemlist productos={productos} />
-        </>
-        
-    )
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <Itemlist productos={productos} />
+        </Col>
+        <Col>
+          <Itemlist productos={productos} />
+        </Col>
+        <Col>
+          <Itemlist productos={productos} />
+        </Col>
+      </Row>
+    </Container>
+  );
 }
+
 export default ItemListContainer

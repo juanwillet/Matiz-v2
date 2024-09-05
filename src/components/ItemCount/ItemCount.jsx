@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Button from "../Button/button";
+import Card from 'react-bootstrap/Card';
 
-const ItemCount = ({inicial, stock, background}) => {
+function ItemCount ({inicial, stock}) {
 
-const [cantidad, setCantidad] = useState(inicial)
+ const [cantidad, setCantidad] = useState(inicial)
 
 const suma = () => {
     if (cantidad<stock){
@@ -17,35 +18,35 @@ const resta = () => {
     }
 }
 
-return (
-
-<div
-style={{backgroundColor:background}}>
-    <div>
-        <Button
-                        color= 'white'
-                        label= '+'
-                        secondColor= 'black'
-                        callback = {suma}
-        />
-        <h4>{cantidad}</h4>
-        <Button
-                        color= 'white'
-                        label= '-'
-                        secondColor= 'black'
-                        callback = {resta}
-        />
-    </div>
-    <div>
-        <Button
-                                color= 'white'
-                                label= 'Agregar al carrito'
-                                secondColor= 'black'
-                                callback = {()=> console.log('Cantidad agregada: '+cantidad)}
-        />
-    </div>
-</div>
-
-)
+  return (
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+         <Card.Title>
+          <Button
+             color= 'white'
+             label= 'Agregar al carrito'
+             secondColor= 'black'
+             callback = {()=> console.log('Cantidad agregada: '+cantidad)}
+          />
+         </Card.Title>
+         <Card.Text>
+             {cantidad}
+         </Card.Text>
+         <Button
+             color= 'white'
+             label= '-'
+             secondColor= 'black'
+             callback = {resta}
+         />
+         <Button
+             color= 'white'
+             label= '+'
+             secondColor= 'black'
+             callback = {suma}
+         />
+      </Card.Body>
+    </Card>
+  );
 }
+
 export default ItemCount

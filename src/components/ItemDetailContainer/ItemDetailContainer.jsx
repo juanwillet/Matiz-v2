@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
-function ItemDetailContainer ({greeting}) {
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+function ItemDetailContainer () {
    
     const [producto, setProducto]= useState([])
     const {detalleId} = useParams()
-    // const filtro =(prod)=>{prod.id.filter(detalleId)}
     useEffect ( ()=>{
      
         fetch (`https://fakestoreapi.com/products/${detalleId}`)
@@ -15,15 +18,15 @@ function ItemDetailContainer ({greeting}) {
      
         }, [detalleId])
     
-console.log(producto)
+
     return(
-        
-        <>
-        <h2>
-            {greeting}
-        </h2><ItemDetail producto={producto} />
-        </>
-        
+        <Container>
+        <Row>
+          <Col>
+          <ItemDetail producto={producto} />
+          </Col>
+        </Row>
+      </Container>        
     )
 }
 export default ItemDetailContainer
