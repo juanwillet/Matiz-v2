@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function Item ({prod}) {
-
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={prod.image}/>
@@ -18,17 +17,4 @@ function Item ({prod}) {
   );
 }
 
-
-
-// function Item ({prod}) {
-//     return(
-//  <div style={{backgroundColor: "white"}}>
-//   <p>{prod.title}</p>
-//   <p>{prod.category}</p>
-//   <img src={prod.image} alt="" />
-//   <p>{prod.price} $</p>
-//   <Link to={`/detalle/${prod.id}`}> DETALLE </Link>
-//  </div>
-//     )
-// }
 export default Item
