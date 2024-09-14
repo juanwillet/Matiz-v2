@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-export const cartContext = createContext([])
+export const cartContext = createContext({cart:[]})
 
-export const cartContextProvider =({children})=>{
+export function CartContextProvider ({children}) {
 
 const [cart, setCart]= useState([])
 
@@ -13,8 +13,7 @@ return cart.some(item=> item.id===id)
 
 const agregarProducto = (producto, cantidad) =>{
 if (!buscarEnCarrito(producto.id)){
-setCart([{...producto,cantidad}])
-console.log(cart)
+setCart(prev=> [...prev, {...producto,cantidad}])
 }
 }
 

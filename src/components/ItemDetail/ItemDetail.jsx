@@ -3,12 +3,19 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { cartContext} from "../Context/CartContext";
+import { useContext } from "react";
 
 function ItemDetail  ({producto}) {
   const [cantidadAgregada, setCantidadAgregada]= useState(0)
   const handleAdd =(cantidad) =>{
        setCantidadAgregada(cantidad)
+       agregarProducto(producto, cantidad)
+       console.log(cart)
   }
+
+  const {agregarProducto, cart}= useContext(cartContext)
+
   return (
     <>
     <Card style={{ width: '18rem' }}>
