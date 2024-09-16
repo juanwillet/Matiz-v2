@@ -1,10 +1,8 @@
 import { cartContext} from "../Context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartItem from "../CartItem/CartItem";
-// import CartItemList from "../CartItemList/CartItemList";
 import Button from "../Button/button";
-
+import CartItemList from "../CartItemList/CartItemList";
 function Cart () {
 const {cart, agregarProducto, borrar, vaciarCart, cantidadProductos, totalProductos}= useContext(cartContext)
 console.log(cart)
@@ -18,8 +16,8 @@ if (cantidadProductos()===0){
 }
 return(
      <div>
-        {/* <CartItemList productos={cart}/> */}
-        {cart.map(prod=> <CartItem key={prod.id}prod={prod}/>)}
+  
+        <CartItemList/>
         <h3>Total: $ {totalProductos()}</h3>
         <Button
              color= 'white'

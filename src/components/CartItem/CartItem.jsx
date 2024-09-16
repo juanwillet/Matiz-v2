@@ -1,9 +1,13 @@
-import { useEffect } from "react"
+import { cartContext} from "../Context/CartContext";
+import { useContext,useState } from "react";
 
-function CartItem ({prod}) {
-    <div>
-        <p>{prod.title}</p>
-        <p>{prod.title}</p>
+function CartItem() {
+    const {cart}= useContext(cartContext)
+const [articulos, setArticulos]= useState([cart])
+    return (
+   <div>
+        {articulos.map(prod=> <p>prod.title</p>)}
     </div>
+);
 }
 export default CartItem

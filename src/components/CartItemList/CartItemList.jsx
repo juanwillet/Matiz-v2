@@ -1,16 +1,25 @@
-import CartItem from "../CartItem/CartItem"
 import { cartContext} from "../Context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import Button from "../Button/button";
 function CartItemList (){ 
-    const {cart, agregarProducto, borrar, vaciarCart, cantidadProductos, totalProductos}= useContext(cartContext)
-    return(
- <div>
-{cart.map (prod=> (
-<CartItem prod={prod} key={prod.id}/>
-))
-}
-</div>
-    )
+    const {cart,borrar}= useContext(cartContext)
+    const [articulos, setArticulos]= useState(cart)
+    
+            return (
+           <div>
+                {articulos.map(art=> <>
+                    <p>{art.title}</p>
+                    <p>{art.price}</p>
+                    {/* ojo este boton esta haciendo que el carrito se vacie solo<Button
+                                 color= 'white'
+                                 label= 'x'
+                                 secondColor= 'black'
+                                 callback = {borrar(art.id)}
+                    /> */}
+                </>)}
+            </div>
+        )
+    
 }
 
 export default CartItemList
