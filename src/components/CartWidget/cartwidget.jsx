@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+import { cartContext} from "../Context/CartContext";
+import { useContext } from "react";
 const CartWidget = () =>{
+    const {cantidadProductos}= useContext(cartContext)
     return (
-        <div 
-        style={{fontSize: "xx-large"}}
-        >
-            🛒 1
-        </div>
+    <>
+    🛒 {cantidadProductos()}
+    </>
     )
 }
 export default CartWidget

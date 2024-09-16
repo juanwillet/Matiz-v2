@@ -11,11 +11,10 @@ function ItemDetail  ({producto}) {
   const handleAdd =(cantidad) =>{
        setCantidadAgregada(cantidad)
        agregarProducto(producto, cantidad)
-       console.log(cart)
   }
 
   const {agregarProducto, cart}= useContext(cartContext)
-
+  console.log(cart)
   return (
     <>
     <Card style={{ width: '18rem' }}>
@@ -31,10 +30,10 @@ function ItemDetail  ({producto}) {
       </ListGroup>
     </Card>
     <div>
-    {cantidadAgregada > 0 ?(<Link to={'/'}>Terminar compra</Link>)
+    {cantidadAgregada > 0 ?(<Link to={'/cart'}>Terminar compra</Link>)
     :
     (<ItemCount
-       inicial={0}
+       inicial={1}
        stock={20}
        onAdd={handleAdd}
     />)
