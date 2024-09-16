@@ -24,7 +24,7 @@ function NavBar() {
               </NavDropdown>
               <Nav.Link as={Link} to={`/category/jewelery`}>Joyeria</Nav.Link>
               <Nav.Link as={Link} to={`/category/electronics`}>Electronicos</Nav.Link>
-              <Nav.Link as={Link} to={'/cart'}><CartWidget/></Nav.Link>
+              <Nav.Link as={Link}to={'/cart'}><CartWidget/></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
