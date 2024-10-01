@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import getProducts from "../../firebase/db";
 
 
 function ItemListContainer ({greeting}) {
@@ -16,16 +17,16 @@ function ItemListContainer ({greeting}) {
     setProductos(productosFiltrados)
     }
     useEffect ( ()=>{
-        fetch ('https://fakestoreapi.com/products')
-        .then (resp=> resp.json())
-        .then(resp=> { if(!categoryId){
-            setProductos(resp)
-        }
-        else{
-            filtro(resp)
-        }})
+        // fetch ('https://fakestoreapi.com/products')
+        // .then (resp=> resp.json())
+        // .then(resp=> { if(!categoryId){
+        //     setProductos(resp)
+        // }
+        // else{
+        //     filtro(resp)
+        // }})
+        getProducts(setProductos)
         }, [categoryId])
-        console.log(productos)
   return (
     <Container>
       <Row>
