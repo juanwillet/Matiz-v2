@@ -25,6 +25,7 @@ function ItemListContainer ({greeting}) {
             filtro(resp)
         }})
         }, [categoryId])
+        console.log(productos)
   return (
     <Container>
       <Row>
