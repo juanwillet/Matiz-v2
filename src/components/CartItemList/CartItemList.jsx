@@ -44,7 +44,7 @@ function CartItemList (){
                  secondColor= 'black'
                  callback = {vaciarCart}
                  />
-                 <Card.Title as={Link} to= {'/'}>Checkout</Card.Title>
+                 <Card.Title as={Link} to= {'/checkout'}>Checkout</Card.Title>
              </Card.Body>
          </Card>
      </Row>

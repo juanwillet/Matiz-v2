@@ -1,5 +1,5 @@
 
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, addDoc } from "firebase/firestore";
 import app from "./config";
 
 const db = getFirestore(app);
@@ -29,4 +29,15 @@ if (docSnap.exists()) {
   console.log("No existe ese producto");
 }
 };
+
+export const crearOrden = async (orden) => {
+  const docRef = await addDoc(collection(db, "ordenes"), {
+    nombre: orden.nombre,
+    apellido: orden.apellido,
+    numero: orden.numero,
+    email: orden.email
+  });
+  console.log("Document written with ID: ", docRef.id);
+}
+
 export default getProducts

@@ -5,12 +5,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function CheckoutList (){ 
+function CheckoutList () { 
     const {cart}= useContext(cartContext)
     const [articulos, setArticulos]= useState(cart)
 
     return (
     <Container>
+        <h3>Resumen de compra</h3>
       {articulos.map(art=>      
               
      <Row>
