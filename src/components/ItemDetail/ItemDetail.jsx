@@ -15,7 +15,7 @@ function ItemDetail  ({producto}) {
   }
 
   const {agregarProducto, cart}= useContext(cartContext)
-  console.log(cart)
+  
   return (
     <>
     <Card style={{ width: '18rem' }}>
