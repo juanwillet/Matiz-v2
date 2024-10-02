@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cartContext} from "../Context/CartContext";
 import { useContext } from "react";
+import Button from 'react-bootstrap/Button';
 
 function ItemDetail  ({producto}) {
   const [cantidadAgregada, setCantidadAgregada]= useState(0)
@@ -29,8 +30,11 @@ function ItemDetail  ({producto}) {
           <ListGroup.Item>{producto.price} $</ListGroup.Item>
       </ListGroup>
     </Card>
-    <div>
-    {cantidadAgregada > 0 ?(<Link to={'/cart'}>Terminar compra</Link>)
+    {cantidadAgregada > 0 ?(
+     <Card style={{ width: '18rem' }}>
+        <Button variant="primary" as={Link} to= {'/cart'}>Terminar compra</Button>
+     </Card>
+     )
     :
     (<ItemCount
        inicial={1}
@@ -38,8 +42,6 @@ function ItemDetail  ({producto}) {
        onAdd={handleAdd}
     />)
     }
-    </div>
-
     </>
   );
 }

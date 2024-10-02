@@ -37,6 +37,7 @@ setCart(cartActualizado)
 
 const vaciarCart = () =>{
     setCart([])
+    setTotal(0)
 }
 
 return (

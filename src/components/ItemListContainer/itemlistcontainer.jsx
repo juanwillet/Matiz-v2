@@ -7,25 +7,13 @@ import Col from 'react-bootstrap/Col';
 import getProducts from "../../firebase/db";
 
 
-function ItemListContainer ({greeting}) {
+function ItemListContainer () {
 
     const [productos, setProductos]= useState([])
     const {categoryId} = useParams()
 
-    const filtro =(prods)=>{
-    const productosFiltrados= prods.filter(prod=> prod.category===categoryId)
-    setProductos(productosFiltrados)
-    }
     useEffect ( ()=>{
-        // fetch ('https://fakestoreapi.com/products')
-        // .then (resp=> resp.json())
-        // .then(resp=> { if(!categoryId){
-        //     setProductos(resp)
-        // }
-        // else{
-        //     filtro(resp)
-        // }})
-        getProducts(setProductos)
+        getProducts(setProductos, categoryId)
         }, [categoryId])
   return (
     <Container>

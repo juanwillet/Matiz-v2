@@ -11,10 +11,6 @@ function ItemDetailContainer () {
     const [producto, setProducto]= useState([])
     const {detalleId} = useParams()
     useEffect ( ()=>{
-     
-        // fetch (`https://fakestoreapi.com/products/${detalleId}`)
-        // .then (resp=> resp.json())
-        // .then(resp=> setProducto(resp))
         getProductsById(setProducto, `${detalleId}`)
      
         }, [detalleId])

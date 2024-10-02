@@ -1,15 +1,22 @@
 
-import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, } from "firebase/firestore";
 import app from "./config";
 
 const db = getFirestore(app);
 
-const getProducts = async (setProductos)=> {const querySnapshot = await getDocs(collection(db, "productos"));
+const getProducts = async (setProductos, category)=> {
+const querySnapshot = await getDocs(collection(db, "productos"));
 const productos= []
 querySnapshot.forEach((doc) => {
-  productos.push(doc.data());
-})
-setProductos(productos)
+    productos.push(doc.data());
+  })
+if (!category) {
+      setProductos(productos)
+} else {
+    const productosFiltrados= productos.filter(prod=> prod.category===category)
+    setProductos(productosFiltrados)
+}
+
 };
 
 export const getProductsById = async (setProductos, id)=> {const docRef = doc(db, "productos", id);
@@ -19,7 +26,7 @@ if (docSnap.exists()) {
     setProductos(docSnap.data());
 } else {
   
-  console.log("No such document!");
+  console.log("No existe ese producto");
 }
 };
 export default getProducts
