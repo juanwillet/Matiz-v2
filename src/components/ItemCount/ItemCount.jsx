@@ -27,7 +27,7 @@ const resta = () => {
       <Card.Body>
         <Card.Title>
          <Button
-             color= 'white'
+             color= '#f0f0f0'
              label= 'Agregar al carrito'
              secondColor= 'black'
              callback = {handleCantidad}

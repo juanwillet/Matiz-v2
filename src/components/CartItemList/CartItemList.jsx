@@ -9,12 +9,11 @@ import Col from 'react-bootstrap/Col';
 
 function CartItemList (){ 
     const {cart, totalProductos, vaciarCart}= useContext(cartContext)
-    const [articulos, setArticulos]= useState(cart)
-
+    
     return (
     <Container>
-      {articulos.map(art=>      
-              
+      {cart.map(art=>      
+        
      <Row>
          <Col>
              <Card style={{ width: '18rem' }}>
@@ -44,7 +43,7 @@ function CartItemList (){
                  secondColor= 'black'
                  callback = {vaciarCart}
                  />
-                 <Card.Title as={Link} to= {'/checkout'}>Checkout</Card.Title>
+                 <Card.Title as={Link} to= {'/checkout'}>Checkout 💸</Card.Title>
              </Card.Body>
          </Card>
      </Row>

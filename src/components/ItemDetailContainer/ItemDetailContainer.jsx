@@ -19,7 +19,7 @@ function ItemDetailContainer () {
         <Container>
         <Row>
           <Col>
-          <ItemDetail key= {detalleId} producto={producto} />
+           <ItemDetail key= {detalleId} producto={producto} />
           </Col>
         </Row>
       </Container>        

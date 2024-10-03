@@ -31,13 +31,8 @@ if (docSnap.exists()) {
 };
 
 export const crearOrden = async (orden) => {
-  const docRef = await addDoc(collection(db, "ordenes"), {
-    nombre: orden.nombre,
-    apellido: orden.apellido,
-    numero: orden.numero,
-    email: orden.email
-  });
-  console.log("Document written with ID: ", docRef.id);
+  const docRef = await addDoc(collection(db, "ordenes"), orden);
+  return docRef.id
 }
 
 export default getProducts

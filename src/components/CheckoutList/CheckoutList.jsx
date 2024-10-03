@@ -7,28 +7,24 @@ import Col from 'react-bootstrap/Col';
 
 function CheckoutList () { 
     const {cart}= useContext(cartContext)
-    const [articulos, setArticulos]= useState(cart)
-
+    
     return (
-    <Container>
-        <h3>Resumen de compra</h3>
-      {articulos.map(art=>      
-              
+    <Container>          
      <Row>
+     <h3>Resumen de compra</h3>  
          <Col>
+             {cart.map(art=> 
              <Card style={{ width: '18rem' }}>
                  <Card.Body>
                      <Card.Title>{art.title}</Card.Title>
                      <Card.Subtitle className="mb-2 text-muted">{art.price} x {art.cantidad}</Card.Subtitle>
                  </Card.Body>
              </Card>
+             )}
          </Col>
      </Row>
-                
-            )}
     </Container>
-        )
-    
+    )
 }
 
 export default CheckoutList

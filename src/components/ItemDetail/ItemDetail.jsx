@@ -14,7 +14,7 @@ function ItemDetail  ({producto}) {
        agregarProducto(producto, cantidad)
   }
 
-  const {agregarProducto, cart}= useContext(cartContext)
+  const {agregarProducto}= useContext(cartContext)
   
   return (
     <>
@@ -32,7 +32,9 @@ function ItemDetail  ({producto}) {
     </Card>
     {cantidadAgregada > 0 ?(
      <Card style={{ width: '18rem' }}>
-        <Button variant="primary" as={Link} to= {'/cart'}>Terminar compra</Button>
+        <Button variant="success" as={Link} to= {'/cart'}>
+            Terminar compra
+         </Button>
      </Card>
      )
     :
